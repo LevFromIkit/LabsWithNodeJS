@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="keywords" content="tuning, vaz, shop, sport, cars">
+    <meta name="description" content="Shop tuning spare parts for VAZ cars">
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="product.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <title>Товар в "vazoshop"</title>
+
+
+</head>
+
+
+<body>
+    <header>
+        <a id="logo" href="index.html">ВашВаЗ</a>
+        <nav id="topmenu">
+            <input type="checkbox" name="menu" id="btn-menu" />
+            <label for="btn-menu">menu</label> 
+            <ui>
+                <li>
+                    <div class="dropdown">
+                        <a class="dropbut">Каталог</a>
+                        <div class="drop-content">
+                            <a>first</a>
+                            <a>second</a>
+                            <a>third</a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a class="dropbut" href="canvas.html">
+                        Конструктор
+                    </a>
+                </li>
+                <li>    
+                    <a class="dropbut">
+                        Корзина
+                    </a>
+                </li>
+                <li>    
+                    <a class="dropbut" href="contacs.html">
+                        Контакты
+                    </a>
+                </li>
+                <li>
+                    <a class="dropbut" href="about_us.html">
+                        О нас
+                    </a>
+                </li>
+                <li>
+                    <a class="dropbut" href="authoriz.html">
+                       Войти
+                    </a>
+                </li>
+            </ui>
+        </nav>
+        <button id="theme" onclick="darkLight()">сменить тему</button>
+        <script src="script.js"></script>
+    </header>
+
+    <div id="progress">
+        <button id="upload_json">загрузить JSON галерею</button>
+        <div id="progressbar"></div>
+        <div id="slide_car"></div>
+    </div>
+    
+    <div id="tabs">
+        <ul>
+          <li><a href="#tabs-1">Стоковые фото</a></li>
+          <li><a href="#tabs-2">Фото товара</a></li>
+          <li><a href="#tabs-3">Фото от клиентов</a></li>
+        </ul>
+        <div id="tabs-1">
+            <img src="stock/1.jpg">
+            <img src="stock/2.jpg">
+            <img src="stock/3.jpg">
+            <img src="stock/4.jpg">
+            <img src="stock/5.jpg">
+        </div>
+        <div id="tabs-2">
+            <img src="class_no_stok/1.jpg">
+            <img src="class_no_stok/2.jpg">
+            <img src="class_no_stok/3.jpg">
+            <img src="class_no_stok/4.jpg">
+            <img src="class_no_stok/5.jpg">
+        </div>
+        <div id="tabs-3">
+            <img src="review/1.jpg">
+            <img src="review/2.jpg">
+            <img src="review/3.jpg">
+            <img src="review/4.jpg">
+            <img src="review/5.jpg">
+        </div>
+    </div>
+
+          
+    <p id="date_pic">Date: <input type="text" id="datepicker"></p>
+
+    <div id="accordion">
+        <h3>Как заказать?</h3>
+        <div>
+          <p>
+            Всё просто. Выбираете товар. Добавляете его в корзину и заказываете!
+          </p>
+        </div>
+        <h3>Как оплатить?</h3>
+        <div>
+          <p>
+            При заказе, вы вводитесвою карту и оплачиваете.
+          </p>
+        </div>
+        <h3>Доставка</h3>
+        <div>
+          <p>
+            Выбираете почтовую службу и указываете свои данные. <br> Почтовые службы:
+          </p>
+          <ul>
+            <li>Почта России</li>
+            <li>CDEK</li>
+            <li>Деловые линии</li>
+          </ul>
+        </div>
+        <h3>Вопрос-ответ</h3>
+        <div>
+          <p>
+            Всё понятно доступно и просто. Вопросов нет!
+          </p>
+        </div>
+      </div>
+
+    <div id="slides">
+        <img src="slide/1.jpg" height="640px" width="960px" id="slide_img" />   
+        <div id="slider"></div>
+    </div>
+
+    <div class="container_copy" id="toggle">
+        <img class="photo" src="4bd9648ad3146_large.jpg" data-full-image="1639827384_1-abrakadabra-fun-p-oboi-na-telefon-chetirka-1.jpg" alt="Image 1">
+        <img class="photo" src="14919.750x013.jpg" data-full-image="1660786578_29-kartinkin-net-p-oper-stail-oboi-krasivo-34.jpg" alt="Image 2">
+        <img class="photo" src="car-wallpapers-bmw-m5-e60.jpg" data-full-image="2560x1440_457581.jpg" alt="Image 3">
+    </div>
+
+    <div id="image-overlay">
+        <img id="full-image" src="" alt="Full Image">
+        <div class="controls">
+            <button class="prev-btn">Предыдущее</button>
+            <button class="next-btn">Следующее</button>
+        </div>
+        <div class="close-button">X</div>
+    </div>
+
+    <button id="but_ton" class="ui-state-default ui-corner-all">Toggle эффект</button>
+    <button id="but_ton2" class="ui-state-default ui-corner-all">Size Эффект</button>
+
+    <script src="product.js"></script>
+
+</body>
+
+<footer>
+    <div class="footer-content">
+        
+        <section>
+            <p>
+                <h4>Ссылки</h4>
+            </p>
+            <p>
+                <p><a style="text-decoration: none; color: aqua;" href="index.html">Главная</a></p>
+                <p><a style="text-decoration: none; color: aqua;" href="#">Каталог</a></p>
+                <p><a style="text-decoration: none; color: aqua;" href="contacs.html">Контакты</a></p>
+                <p><a style="text-decoration: none; color: aqua;" href="about_us.html">О нас</a></p>
+            </p>
+        </section>
+
+        <section>
+            <p>
+                <h4>Контакты</h4>
+            </p>
+            <p>
+                <span><i class="fa fa-phone"></i> 8-923-456-781</span>
+            </p>
+            <p>
+                <span><i class="fa fa-envelope"></i> contact@vahvaz.com</span>
+            </p>
+            <p>
+                <a href="#"><i class="fa fa-twitter" style="font-size:36px;color:rgb(132, 0, 255)"></i></a>
+                <a href="#"><i class="fa fa-facebook" style="font-size:36px;color:rgb(4, 0, 255)"></i></a>
+                <a href="#"><i class="fa fa-instagram" style="font-size:36px;color:rgb(255, 123, 0)"></i></a>
+            </p>
+        </section>
+
+    </div>
+
+    <div class="footer-bottom">
+        &copy; 2024 ВашВаЗ. Все права защищены.
+    </div>
+</footer>
+
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+
+    <head>
+        <meta charset="UTF-8">
+        <script src="script.js"></script>
+        <script src="canvas.js"></script>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="canvas.css">
+        <title>Рисование в "vazoshop"</title>
+
+    </head>
+
+    <body>
+        <header>
+            <a id="logo" href="index.html">ВашВаЗ</a>
+            <nav id="topmenu">
+                <input type="checkbox" name="menu" id="btn-menu" />
+                <label for="btn-menu">menu</label> 
+                <ui>
+                    <li>
+                        <div class="dropdown">
+                            <a class="dropbut">Каталог</a>
+                            <div class="drop-content">
+                                <a>first</a>
+                                <a>second</a>
+                                <a>third</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="dropbut" href="canvas.html">
+                            Конструктор
+                        </a>
+                    </li>
+                    <li>    
+                        <a class="dropbut">
+                            Корзина
+                        </a>
+                    </li>
+                    <li>    
+                        <a class="dropbut" href="contacs.html">
+                            Контакты
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropbut" href="about_us.html">
+                            О нас
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropbut" href="authoriz.html">
+                           Войти
+                        </a>
+                    </li>
+                </ui>
+            </nav>
+            <button id="theme" onclick="darkLight()">сменить тему</button>
+            <script src="script.js"></script>
+        </header>
+
+        <canvas id="myCanvas2" width="430px" height="280px" style="border:1px solid grey"></canvas>
+        <canvas id="myCanvas" width="400px" height="280px" style="border:1px solid grey"></canvas>
+
+
+        <div id="main_can">
+
+        <span>
+            <h1>Нарисуй свою Пушку-Гонку!!!</h1>
+        </span>
+
+        <div class="Toolbar">
+            - Цвет -<br>
+            <img id="blackPen" src="pen_black.png" alt="Чёрный карандаш" onclick="changeColor('rgb(0,0,0)', this)">
+            <img id="redPen" src="pen_red.png" alt="Красный карандаш" onclick="changeColor('rgb(212,21,29)', this)">
+            <img id="greenPen" src="pen_yellow.png" alt="Зеленый карандаш" onclick="changeColor('rgb(131,190,61)', this)"> 
+            <img id="bluePen" src="pen_blue.png" alt="Синий карандаш" onclick="changeColor('rgb(0,86,166)', this)">
+            <img id="eraser" src="eraser.png" alt="Ластик" onclick="changeColor('rgb(255,255,255)', this)">
+        </div>
+        <div class="Toolbar">
+            - Толщина -<br>
+                <input type="range" id="size" min="1" max="10" step="1" value="1" onclick="changeThickness(this)"> 
+
+                <br><br> - Операции-<br>
+            <button onclick="saveCanvas()">Сохранить</button>
+            <button onclick="clearCanvas()">Очистить</button>
+            <div id="savedCopyContainer">
+            <img id="savedImageCopy"><br>
+            Щелкните правой кнопкой мыши для сохранения
+            </div>
+
+        </div>
+
+        <div class="CanvasContainer">
+                <canvas id="drawingCanvas"></canvas>
+        </div>
+    </div>
+
+        <script src="canvas.js"></script>
+
+    </body>
+
+    <footer>
+        <div class="footer-content">
+            
+            <section>
+                <p>
+                    <h4>Ссылки</h4>
+                </p>
+                <p>
+                    <p><a style="text-decoration: none; color: aqua;" href="index.html">Главная</a></p>
+                    <p><a style="text-decoration: none; color: aqua;" href="#">Каталог</a></p>
+                    <p><a style="text-decoration: none; color: aqua;" href="contacs.html">Контакты</a></p>
+                    <p><a style="text-decoration: none; color: aqua;" href="about_us.html">О нас</a></p>
+                </p>
+            </section>
+
+            <section>
+                <p>
+                    <h4>Контакты</h4>
+                </p>
+                <p>
+                    <span><i class="fa fa-phone"></i> 8-923-456-781</span>
+                </p>
+                <p>
+                    <span><i class="fa fa-envelope"></i> contact@vahvaz.com</span>
+                </p>
+                <p>
+                    <a href="#"><i class="fa fa-twitter" style="font-size:36px;color:rgb(132, 0, 255)"></i></a>
+                    <a href="#"><i class="fa fa-facebook" style="font-size:36px;color:rgb(4, 0, 255)"></i></a>
+                    <a href="#"><i class="fa fa-instagram" style="font-size:36px;color:rgb(255, 123, 0)"></i></a>
+                </p>
+            </section>
+
+        </div>
+
+        <div class="footer-bottom">
+            &copy; 2024 ВашВаЗ. Все права защищены.
+        </div>
+    </footer>
+
+</html>

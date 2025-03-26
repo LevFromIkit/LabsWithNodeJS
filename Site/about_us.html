@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="about_us.css">
+    <title>О "vazoshop"</title>
+
+</head>
+
+<body>
+    <header>
+        <a id="logo" href="index.html">ВашВаЗ</a>
+        <nav id="topmenu">
+            <input type="checkbox" name="menu" id="btn-menu" />
+            <label for="btn-menu">menu</label> 
+            <ui>
+                <li>
+                    <div class="dropdown">
+                        <a class="dropbut">Каталог</a>
+                        <div class="drop-content">
+                            <a>first</a>
+                            <a>second</a>
+                            <a>third</a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a class="dropbut" href="canvas.html">
+                        Конструктор
+                    </a>
+                </li>
+                <li>    
+                    <a class="dropbut">
+                        Корзина
+                    </a>
+                </li>
+                <li>    
+                    <a class="dropbut" href="contacs.html">
+                        Контакты
+                    </a>
+                </li>
+                <li>
+                    <a class="dropbut" href="about_us.html">
+                        О нас
+                    </a>
+                </li>
+                <li>
+                    <a class="dropbut" href="authoriz.html">
+                       Войти
+                    </a>
+                </li>
+            </ui>
+        </nav>
+        <button id="theme" onclick="darkLight()">сменить тему</button>
+        <script src="script.js"></script>
+    </header>
+
+    <div id="text_about_us">
+        <p>
+            <h1>Добро пожаловать в магазин тюнинг-запчастей!</h1>
+        </p>
+        <p>
+            <h3>Наш магазин предлагает широкий ассортимент высококачественных тюнинг-запчастей для вашего автомобиля. Мы специализируемся на предоставлении клиентам лучших решений для улучшения внешнего вида, производительности и комфорта их транспортных средств.<br></h3>
+        </p>
+        <span>
+            <h2 style="color: red; font-family: Arial; padding: 10px; background-color: yellow;">Наши особенности: </h2>
+            <ui id="li-copy">
+                <li>Широкий выбор продукции: Мы предлагаем разнообразные тюнинг-детали и аксессуары, включая обвесы, спойлеры, аэродинамические накладки, решетки радиатора, диски, подвески, выхлопные системы и многое другое. Вся наша продукция проходит строгий контроль качества, чтобы гарантировать удовлетворение потребностей наших клиентов.</li>
+                <li>Высокое качество: Мы сотрудничаем только с надежными производителями, известными своим качеством продукции. Все наши товары изготавливаются из прочных и долговечных материалов, чтобы обеспечить долгий срок службы и безупречную работу на дорогах.</li>
+                <li>Профессиональный сервис: Наша команда специалистов всегда готова оказать вам помощь и консультации по выбору оптимальных тюнинг-запчастей для вашего автомобиля. Мы стремимся предоставить нашим клиентам непревзойденный уровень обслуживания и помочь им воплотить свои автомобильные мечты в реальность.</li>
+                <li>Удобство заказа: В нашем магазине вы можете легко и удобно подобрать и заказать необходимые детали прямо через наш веб-сайт. Мы также предлагаем быструю доставку и гибкую систему оплаты, чтобы сделать процесс покупки максимально удобным для вас.</li>
+            </ui>
+            <h2>Не откладывайте улучшение своего автомобиля на потом. Посетите наш магазин уже сегодня и дайте вашему транспортному средству новый облик и улучшенную производительность!</h2>
+        </span>
+    </div>
+
+    <div id="radiChego">
+        <button id="copyButton"> 
+            Повторим?
+        </button>
+        <p id="copyParagraph">Конечно!</p>
+    </div>
+
+    <input type="text" id="searchInput" placeholder="Search menu items">
+    
+    <script src="labka_3.js"></script>
+
+    <div class='z-index'>
+        <div class='box box3'><img src="4bd9648ad3146_large.jpg"></div>
+        <div class='box box2'><img src="12874.970.png"></div>
+        <div class='box box1'><img src="d934fdu-960.jpg"></div>
+    </div>
+
+</body>
+
+<footer>
+    <div class="footer-content">
+        
+        <section>
+            <p>
+                <h4>Ссылки</h4>
+            </p>
+            <p>
+                <p><a style="text-decoration: none; color: aqua;" href="index.html">Главная</a></p>
+                <p><a style="text-decoration: none; color: aqua;" href="#">Каталог</a></p>
+                <p><a style="text-decoration: none; color: aqua;" href="contacs.html">Контакты</a></p>
+                <p><a style="text-decoration: none; color: aqua;" href="about_us.html">О нас</a></p>
+            </p>
+        </section>
+
+        <section>
+            <p>
+                <h4>Контакты</h4>
+            </p>
+            <p>
+                <span><i class="fa fa-phone"></i> 8-923-456-781</span>
+            </p>
+            <p>
+                <span><i class="fa fa-envelope"></i> contact@vahvaz.com</span>
+            </p>
+            <p>
+                <a href="#"><i class="fa fa-twitter" style="font-size:36px;color:rgb(132, 0, 255)"></i></a>
+                <a href="#"><i class="fa fa-facebook" style="font-size:36px;color:rgb(4, 0, 255)"></i></a>
+                <a href="#"><i class="fa fa-instagram" style="font-size:36px;color:rgb(255, 123, 0)"></i></a>
+            </p>
+        </section>
+
+    </div>
+
+    <div class="footer-bottom">
+        &copy; 2024 ВашВаЗ. Все права защищены.
+    </div>
+</footer>
+
+</html>

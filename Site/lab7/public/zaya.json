@@ -1,0 +1,7 @@
+{
+	"title_site": "Заявка",
+	"product_name": "Оставьте заявку и мы закажем",
+	"price": "",
+	"info": "<form action=\"ok\" method=\"POST\">Ваш контактный номер телефона: <input type=\"text\" name=\"inputUser\"><br /> Нужная деталь: &ensp; ДМРВ &thinsp;<input type=\"checkbox\" name=\"checkboxUser\">&ensp; ГБЦ &thinsp;<input type=\"checkbox\" name=\"checkboxUser2\">&ensp; ГТЦ &thinsp;<input type=\"checkbox\" name=\"checkboxUser3\"><br /> Производитель: &ensp; Лада-Имидж &thinsp;<input type=\"radio\" value=\"Ладовская\" name=\"radioUser\">&ensp; Балаково-Запчасть &thinsp;<input type=\"radio\" value=\"Балак-Шлак\" name=\"radioUser\">&ensp; Китай &thinsp;<input type=\"radio\" value=\"Китайская\" name=\"radioUser\"> <br /> <button>Заказать</button></form>",
+	"img": ""
+}

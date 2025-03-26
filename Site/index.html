@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="keywords" content="tuning, vaz, shop, sport, cars">
+    <meta name="description" content="Shop tuning spare parts for VAZ cars">
+    
+    <script src="script.js"></script>
+    <script src="index.js"></script>
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+    <title>Главная страница "vazoshop"</title>
+
+</head>
+
+
+<body>
+    <header>
+        <a id="logo" href="index.html">ВашВаЗ</a>
+        <nav id="topmenu">
+            <input type="checkbox" name="menu" id="btn-menu" />
+            <label for="btn-menu">menu</label> 
+            <ui>
+                <li>
+                    <div class="dropdown">
+                        <a class="dropbut">Каталог</a>
+                        <div class="drop-content">
+                            <a>first</a>
+                            <a>second</a>
+                            <a>third</a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a class="dropbut" href="canvas.html">
+                        Конструктор
+                    </a>
+                </li>
+                <li>    
+                    <a class="dropbut">
+                        Корзина
+                    </a>
+                </li>
+                <li>    
+                    <a class="dropbut" href="contacs.html">
+                        Контакты
+                    </a>
+                </li>
+                <li>
+                    <a class="dropbut" href="about_us.html">
+                        О нас
+                    </a>
+                </li>
+                <li>
+                    <a class="dropbut" href="authoriz.html">
+                       Войти
+                    </a>
+                </li>
+            </ui>
+        </nav>
+        <button id="theme" onclick="darkLight()">сменить тему</button>
+    </header>
+
+    <div class="slideshow-container">
+
+        <div class="mySlides fade">
+          <div class="numbertext">1 / 3</div>
+          <picture>
+            <source media="(min-width: 1000px)" srcset="2560x1440_457581.jpg">
+            <source media="(min-width: 600px)" srcset="1660786578_29-kartinkin-net-p-oper-stail-oboi-krasivo-34.jpg">
+            <img src="l_z7hraBMxY.jpg">
+          </picture>
+        </div>
+        
+        <div class="mySlides fade">
+          <div class="numbertext">2 / 3</div>
+          <picture>
+            <source media="(min-width: 1000px)" srcset="bmw_avtomobil_bamper_191131_1280x720.jpg">
+            <source media="(min-width: 600px)" srcset="1639827384_1-abrakadabra-fun-p-oboi-na-telefon-chetirka-1.jpg">
+            <img src="169856-bmw-bajerishe_motoren_verke_ag-legkovyye_avtomobili-bmw_i8-bmw_m-1242x2688.jpg">
+          </picture>
+        </div>
+        
+        <div class="mySlides fade">
+          <div class="numbertext">3 / 3</div>
+          <picture>
+            <source media="(min-width: 1000px)" srcset="car-wallpapers-bmw-m5-e60.jpg">
+            <source media="(min-width: 600px)" srcset="1671577547_kalix-club-p-chetirka-oper-oboi-krasivo-2.jpg">
+            <img src="thumbnail_350x622.jpg">
+          </picture>
+        </div>
+        
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+        
+    </div>
+        
+    <div style="text-align:center">
+          <span class="dot" onclick="currentSlide(1)"></span> 
+          <span class="dot" onclick="currentSlide(2)"></span> 
+          <span class="dot" onclick="currentSlide(3)"></span> 
+    </div>
+
+    <select name="select">
+        <option value="value1">Все</option>
+        <option value="value2" selected>2101-2107</option>
+        <option value="value3" selected>2108-2199</option>
+        <option value="value4" selected>2110-2112</option>
+        <option value="value5">2113-2115</option>
+    </select>
+
+    <section class="cards">
+        <div class="container container_cards">
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+    <script src="index.js"></script>
+            
+</body>
+
+<footer>
+    <div class="footer-content">
+        
+        <section>
+            <p>
+                <h4>Ссылки</h4>
+            </p>
+            <p>
+                <p><a style="text-decoration: none; color: aqua;" href="index.html">Главная</a></p>
+                <p><a style="text-decoration: none; color: aqua;" href="#">Каталог</a></p>
+                <p><a style="text-decoration: none; color: aqua;" href="contacs.html">Контакты</a></p>
+                <p><a style="text-decoration: none; color: aqua;" href="about_us.html">О нас</a></p>
+            </p>
+        </section>
+
+        <section>
+            <p>
+                <h4>Контакты</h4>
+            </p>
+            <p>
+                <span><i class="fa fa-phone"></i> 8-923-456-781</span>
+            </p>
+            <p>
+                <span><i class="fa fa-envelope"></i> contact@vahvaz.com</span>
+            </p>
+            <p>
+                <a href="#"><i class="fa fa-twitter" style="font-size:36px;color:rgb(132, 0, 255)"></i></a>
+                <a href="#"><i class="fa fa-facebook" style="font-size:36px;color:rgb(4, 0, 255)"></i></a>
+                <a href="#"><i class="fa fa-instagram" style="font-size:36px;color:rgb(255, 123, 0)"></i></a>
+            </p>
+        </section>
+
+    </div>
+
+    <div class="footer-bottom">
+        &copy; 2024 ВашВаЗ. Все права защищены.
+    </div>
+</footer>
+
+</html>

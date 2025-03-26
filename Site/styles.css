@@ -1,0 +1,218 @@
+* {box-sizing: border-box}
+
+
+body {
+  font-family: Verdana, sans-serif;
+  margin: 0;
+  text-align:justify;
+}
+
+body.dark-theme {
+  background-color: rgb(66, 50, 50);
+  color: #ffffff;
+}
+
+body.light-theme {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  body {
+      background: rgb(66, 50, 50);
+      color: white;
+    }
+}
+
+
+header {
+
+  position: relative;
+  margin-left: auto;
+  display: flex;
+    
+  padding-left: 20px;
+  padding-right: 16px;
+}
+
+nav{
+  padding: 1px 5px;
+  text-align: center;
+  padding: 20px;
+}
+
+nav > ul {
+ padding: 0;
+}
+
+nav li{
+  display: inline-block;
+  vertical-align: top;
+  padding: 2px;
+}
+
+nav a{
+  padding: 1px 5px;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: 0.9s;
+}
+
+nav a:hover{
+  border: 1px solid #fff;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+nav label {    
+  display: none;
+  border: 1px solid #fff;   
+  padding: 1px 5px;
+  cursor: pointer;
+  transition: 0.9s;
+}
+
+nav label:hover{
+  color: rgb(138, 205, 23);
+  border: 1px solid rgb(138, 205, 23);
+}
+
+@media screen and (max-width: 1000px) {
+  
+  nav {
+    text-align: left;
+  }
+
+  nav label{
+    display: inline-block;
+  }
+
+  nav > ul {
+    display: none;
+    width: 100px;
+    left: 0;
+  }
+
+  nav li{
+    display: block;
+    vertical-align: top;
+    padding: 2px;
+  }
+
+  input[type="checkbox"]:checked ~ label + ul {
+    display: block;
+  }
+
+}
+
+a#logo {
+  color: white;
+  text-decoration: none;
+  font-size: 24px;
+  padding-top: 10px;
+  font-style: normal;
+  font-weight: bold;
+  font-family: cursive;
+}
+
+a#logo:hover {
+  color: rgb(140, 255, 74);
+}
+
+.dropbut,
+#theme {
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+  color: white;
+  font-size: 16px;
+  border: none;
+  text-decoration-line: none;
+}
+
+header,
+.dropbut,
+#theme
+{
+  background-color: #e01f1f;
+}
+
+.dropbut:hover,
+.dropdown:hover .dropbut,
+#theme:hover
+{
+  background-color: #3e8e41;
+  color: #ddd;
+}
+
+.dropdown {
+  position: relative;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.drop-content {
+  
+  border-radius: 10px;
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.drop-content a {
+  
+  border-radius: 10px;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.drop-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .drop-content {
+  display: block;
+}
+
+#scroll {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    height: auto;
+}
+
+footer {
+    background-color: #161616;
+    color: #fff;
+    padding: 10px;
+    font-size: 0.9em;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.footer-bottom{
+  text-align: center
+}
+
+@font-face {
+  font-family: Pompadur;
+  src: url(fonts/pompadur.ttf); 
+ }
+
+ .nn {
+  font-family: Pompadur, 'Comic Sans MS', cursive;
+ }
+
+ #but_in{
+  background-color: #9e2b2b;
+ }

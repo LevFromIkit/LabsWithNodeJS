@@ -1,0 +1,11 @@
+{ 
+   "gallery":"slide_photo",
+   "images":[
+      {"name":"Photo 1","file":"1.jpg"},
+      {"name":"Photo 2","file":"2.jpg"},
+      {"name":"Photo 3","file":"3.jpg"},
+      {"name":"Photo 4","file":"4.jpg"},
+      {"name":"Photo 5","file":"5.jpg"},
+      {"name":"Photo 6","file":"6.jpg"}
+   ]
+}

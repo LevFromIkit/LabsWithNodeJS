@@ -1,0 +1,7 @@
+{
+	"title_site": "Добавление товара",
+	"product_name": "Заполните поля",
+	"price": "",
+	"info": "<form action=\"create\" method=\"POST\">Введите название товара: <input type=\"text\" name=\"inputUser\"><br />Введите цену: <input type=\"text\" name=\"inputUser2\"><br />Введите описание: <input type=\"text\" name=\"inputUser3\"><br />Введите путь к фотографии: <input type=\"text\" name=\"inputUser4\"><br /><button>Добавить</button></form>",
+	"img": ""
+}

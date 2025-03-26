@@ -1,0 +1,7 @@
+{
+	"title_site": "katalog",
+	"product_name": "Каталог запчастей на авто",
+	"price": "<a href='/add_product'>Добавить товар</a>",
+	"info": "<a href='/zaya'>Оставить заявку на запчасть</a>",
+	"img": "<section class='cards'><div class='container container_cards'></div></section>"
+}

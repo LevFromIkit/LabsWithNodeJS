@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="keywords" content="tuning, vaz, shop, sport, cars">
+        <meta name="description" content="Shop tuning spare parts for VAZ cars">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        Копировать
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dropbox.js/4.0.30/Dropbox-sdk.min.js"></script>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+        <title>Лаба с Dropbox</title>
+
+    </head>
+
+    <body>
+        <header>
+            <a id="logo" href="index.html">ВашВаЗ</a>
+            <nav id="topmenu">
+                <input type="checkbox" name="menu" id="btn-menu" />
+                <label for="btn-menu">menu</label> 
+                <ui>
+                    <li>
+                        <div class="dropdown">
+                            <a class="dropbut">Каталог</a>
+                            <div class="drop-content">
+                                <a>first</a>
+                                <a>second</a>
+                                <a>third</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="dropbut" href="canvas.html">
+                            Конструктор
+                        </a>
+                    </li>
+                    <li>    
+                        <a class="dropbut">
+                            Корзина
+                        </a>
+                    </li>
+                    <li>    
+                        <a class="dropbut" href="contacs.html">
+                            Контакты
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropbut" href="about_us.html">
+                            О нас
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropbut" href="authoriz.html">
+                        Войти
+                        </a>
+                    </li>
+                </ui>
+            </nav>
+            <button id="theme" onclick="darkLight()">сменить тему</button>
+        </header>
+
+        <form id="info-form">
+            <div class="form-group">
+                <label for="info-form">Укажите id пользователя:</label>
+                <input type="text" class="form-control" id="info_name" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Получить список друзей</button>
+        </form>
+
+        <h2>Друзья</h2>
+        <table class="table table-striped" id="users-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Имя</th>
+              <th>Фамилия</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+    
+        
+        <form id="status-form">
+            <div class="form-group">
+                <label for="status-form">Укажите имя файла:</label>
+                <input type="text" class="form-control" id="stat_in" required>
+                <label for="status-form">Содержание:</label>
+                <input type="text" class="form-control" id="status" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Получить список друзей</button>
+        </form>
+        
+
+        <button id="but_auth">Авторизоваться</button>
+        <button id="but_file">Получить файлы</button>
+        <button id="but_create">Создать файл</button>
+        <script>
+            $("#info-form").submit(function (e) {
+                e.preventDefault(); // Предотвращаем отправку формы
+                var name = $("#info_name").val();
+                var url = 'https://api.vk.com/method/friends.get?user_id='+name+'&fields=last_seen&order=hints&access_token=b63587bdb63587bdb63587bd09b52dd206bb635b63587bdd07c8914e220631d9fd9c1ae&v=5.199'
+                $.ajax({
+                    url: url,
+                    method: 'GET',
+                    dataType: 'JSONP',
+                    success: function (data) {
+                        var users = data.response.items;
+                        $('#users-table tbody').empty();
+                        users.forEach(function(user) {
+                            $('#users-table tbody').append(`
+                                <tr>
+                                <td>${user.id}</td>
+                                <td>${user.first_name}</td>
+                                <td>${user.last_name}</td>
+                                </tr>
+                            `);
+                        });
+
+                        var url = 'https://api.vk.com/method/status.get?user_id='+name+'&access_token=b63587bdb63587bdb63587bd09b52dd206bb635b63587bdd07c8914e220631d9fd9c1ae&v=5.199'
+                        $.ajax({
+                            url: url,
+                            method: 'GET',
+                            dataType: 'JSONP',
+                            success: function (data) {
+                                var users = data;
+                                $('stat_in').val(data);
+                            }
+                        });
+                        $('stat_in').val();
+                    }
+                });
+            }) //id= 220163179
+
+            $('#but_auth').on('click', function() {    
+              $.ajax({
+                  url: 'https://oauth.vk.com/authorize?client_id=51926459&scope=staus,offline&display=page&scope=friends&response_type=token&v=5.131&state=123456',
+                  method: 'GET',
+                  dataType: 'JSONP',
+                  success: function (data) {
+                      console.log(data);
+                  }
+              })
+          })
+
+          $('#but_file').on('click', function() {    
+                // Создаем экземпляр Dropbox с токеном доступа
+                const dbx = new Dropbox.Dropbox({ accessToken: 'sl.B2V7CnY_13VtKxRdrC77ikLWeMh3il1sDo4035iJs32ny2f0sd1Lb5qpTSFBtItn_Q2OAsH-NLBs9BbwTI-Kr5ARITTDaK4QbI-11vY1qTwVYakZmLi5Is65c2LWK6CdI4uivYiTh3LUyRL7MW3IaBc' });
+
+                // Получаем список файлов в корневой папке пользователя
+                dbx.filesListFolder({ path: '' })
+                .then(response => {
+                    console.log(response.entries);
+                })
+                .catch(error => {
+                    console.error('Ошибка получения списка файлов:', error);
+                });
+              })
+
+              $('#but_create').on('click', function() {    
+                    // Создаем экземпляр Dropbox с токеном доступа
+                    const dbx = new Dropbox.Dropbox({ accessToken: 'sl.B2V7CnY_13VtKxRdrC77ikLWeMh3il1sDo4035iJs32ny2f0sd1Lb5qpTSFBtItn_Q2OAsH-NLBs9BbwTI-Kr5ARITTDaK4QbI-11vY1qTwVYakZmLi5Is65c2LWK6CdI4uivYiTh3LUyRL7MW3IaBc' });
+                    
+                    data = $('#status').val();
+                    // Создаем содержимое нового файла
+                    const fileContent = data;
+
+                    name = $('#stat_in').val();
+                    // Загружаем файл в корневую папку пользователя
+                    dbx.filesUpload({ path: '/' + name + 'txt', contents: fileContent })
+                    .then(response => {
+                        console.log('Файл успешно создан:', response.name);
+                    })
+                    .catch(error => {
+                        console.error('Ошибка создания файла:', error);
+                    });
+              })
+
+        </script>
+
+    </body>
+
+    <footer>
+        <div class="footer-content">
+            
+            <section>
+                <p>
+                    <h4>Ссылки</h4>
+                </p>
+                <p>
+                    <p><a style="text-decoration: none; color: aqua;" href="index.html">Главная</a></p>
+                    <p><a style="text-decoration: none; color: aqua;" href="#">Каталог</a></p>
+                    <p><a style="text-decoration: none; color: aqua;" href="contacs.html">Контакты</a></p>
+                    <p><a style="text-decoration: none; color: aqua;" href="about_us.html">О нас</a></p>
+                </p>
+            </section>
+    
+            <section>
+                <p>
+                    <h4>Контакты</h4>
+                </p>
+                <p>
+                    <span><i class="fa fa-phone"></i> 8-923-456-781</span>
+                </p>
+                <p>
+                    <span><i class="fa fa-envelope"></i> contact@vahvaz.com</span>
+                </p>
+                <p>
+                    <a href="#"><i class="fa fa-twitter" style="font-size:36px;color:rgb(132, 0, 255)"></i></a>
+                    <a href="#"><i class="fa fa-facebook" style="font-size:36px;color:rgb(4, 0, 255)"></i></a>
+                    <a href="#"><i class="fa fa-instagram" style="font-size:36px;color:rgb(255, 123, 0)"></i></a>
+                </p>
+            </section>
+            
+
+    
+        </div>
+    
+        <div class="footer-bottom">
+            &copy; 2024 ВашВаЗ. Все права защищены.
+        </div>
+    </footer>
+
+</html>

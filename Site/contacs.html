@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="contacs.css">
+    <script src="script.js"></script>
+    <title>Контакты "vazoshop"</title>
+</head>
+
+<body>
+    <header>
+        <a id="logo" href="index.html">ВашВаЗ</a>
+        <nav id="topmenu">
+            <input type="checkbox" name="menu" id="btn-menu" />
+            <label for="btn-menu">menu</label> 
+            <ui>
+                <li>
+                    <div class="dropdown">
+                        <a class="dropbut">Каталог</a>
+                        <div class="drop-content">
+                            <a>first</a>
+                            <a>second</a>
+                            <a>third</a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a class="dropbut" href="canvas.html">
+                        Конструктор
+                    </a>
+                </li>
+                <li>    
+                    <a class="dropbut">
+                        Корзина
+                    </a>
+                </li>
+                <li>    
+                    <a class="dropbut" href="contacs.html">
+                        Контакты
+                    </a>
+                </li>
+                <li>
+                    <a class="dropbut" href="about_us.html">
+                        О нас
+                    </a>
+                </li>
+                <li>
+                    <a class="dropbut" href="authoriz.html">
+                       Войти
+                    </a>
+                </li>
+            </ui>
+        </nav>
+        <button id="theme" onclick="darkLight()">сменить тему</button>
+        <script src="script.js"></script>
+    </header>
+
+    <div id="tabWork">
+        <p>Контактные данные
+            </p>
+        <table>
+            <tr>
+                <th>День недели</th>
+                <th>Часы работы</th>
+            </tr>
+            <tr>
+                <td>Понедельник</td>
+                <td>9:00 - 18:00</td>
+            </tr>
+            <tr>
+                <td>Вторник</td>
+                <td>9:00 - 18:00</td>
+            </tr>
+            <tr>
+                <td>Среда</td>
+                <td>9:00 - 18:00</td>
+            </tr>
+            <tr>
+                <td>Четверг</td>
+                <td>9:00 - 18:00</td>
+            </tr>
+            <tr>
+                <td>Пятница</td>
+                <td>9:00 - 18:00</td>
+            </tr>
+            <tr>
+                <td>Суббота</td>
+                <td>10:00 - 16:00</td>
+            </tr>
+            <tr>
+                <td>Воскресенье</td>
+                <td>Выходной</td>
+            </tr>
+        </table>
+    </div>
+
+    <div  id="about_us">
+        <span>
+            <h2>Мы находимся:</h2>
+            <p>по адресу г.Красноярск, ул. Никакая, д. 0</p>
+        </span>
+    
+        <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A185a5cadf3aa4b75d82ce069621843dbc53e96c5bf045dd70d805555a835471e&amp;source=constructor" width="100%" height="400" frameborder="0"></iframe>
+    </div>
+</body>
+
+<footer>
+    <div class="footer-content">
+        
+        <section>
+            <p>
+                <h4>Ссылки</h4>
+            </p>
+            <p>
+                <p><a style="text-decoration: none; color: aqua;" href="index.html">Главная</a></p>
+                <p><a style="text-decoration: none; color: aqua;" href="#">Каталог</a></p>
+                <p><a style="text-decoration: none; color: aqua;" href="contacs.html">Контакты</a></p>
+                <p><a style="text-decoration: none; color: aqua;" href="about_us.html">О нас</a></p>
+            </p>
+        </section>
+
+        <section>
+            <p>
+                <h4>Контакты</h4>
+            </p>
+            <p>
+                <span><i class="fa fa-phone"></i> 8-923-456-781</span>
+            </p>
+            <p>
+                <span><i class="fa fa-envelope"></i> contact@vahvaz.com</span>
+            </p>
+            <p>
+                <a href="#"><i class="fa fa-twitter" style="font-size:36px;color:rgb(132, 0, 255)"></i></a>
+                <a href="#"><i class="fa fa-facebook" style="font-size:36px;color:rgb(4, 0, 255)"></i></a>
+                <a href="#"><i class="fa fa-instagram" style="font-size:36px;color:rgb(255, 123, 0)"></i></a>
+            </p>
+        </section>
+
+    </div>
+
+    <div class="footer-bottom">
+        &copy; 2024 ВашВаЗ. Все права защищены.
+    </div>
+</footer>
+
+</html>

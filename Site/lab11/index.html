@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lab11 API Demo</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <div class="container mt-5">
+    <h1>Лаба 11 "API Demo"</h1>
+    <hr>
+
+    <div>
+    <form id="info-form">
+        <div class="form-group">
+            <label for="info-form">Имя</label>
+            <input type="text" class="form-control" id="info_name" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Получить данные</button>
+    </form>
+    <label for="info-form">Возраст</label>
+    <input type="text" class="form-control" id="info_age" required>
+    <label for="info-form">Должность</label>
+    <input type="text" class="form-control" id="info_education" required>
+    <label for="info-form">Должность</label>
+    <input type="text" class="form-control" id="token" required>
+</div>  
+
+    <h2>Добавить пользователя</h2>
+    <form id="userForm">
+        <input type="hidden" name="id" value="0" />
+        <div class="form-group">
+            <label for="name">Имя:</label>
+            <input class="form-control" name="name" />
+        </div>
+        <div class="form-group">
+            <label for="password">Пароль:</label>
+            <input class="form-control" name="password" />
+        </div>
+        <div class="form-group">
+            <label for="age">Возраст:</label>
+            <input class="form-control" name="age" />
+        </div>
+        <div class="form-group">
+            <label for="education">Должность:</label>
+            <input class="form-control" name="education" />
+        </div>
+        <div class="panel-body">
+            <button type="submit" class="btn btn-sm btn-primary">Сохранить</button>
+        </div>
+    </form>
+
+    <h2>Пользователи в БД</h2>
+    <table class="table table-striped" id="users-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Имя</th>
+          <th>Пароль</th>
+          <th>Действие</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <h2>Войти в ЛК</h2>
+    <form id="login-form">
+      <div class="form-group">
+        <label for="username">Имя:</label>
+        <input type="text" class="form-control" id="username" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Пароль:</label>
+        <input type="password" class="form-control" id="password" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Войти</button>
+    </form>
+
+    <div id="message-container"></div>
+  </div>
+
+  <div id="autgorized"></div>
+
+  <form id="password-form">
+    <div class="form-group">
+        <label for="new_password">Новый пароль:</label>
+        <input type="text" class="form-control" id="new_password" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Изменить пароль</button>
+  </form>
+
+
+  <form id="token-form">
+    <div class="form-group">
+        <label for="new_password">Обновить токен:</label>
+    </div>
+    <input type="text" class="form-control" id="cur_token" required>
+    <button type="submit" class="btn btn-primary">Генерация</button>
+  </form>
+
+
+
+  <script>
+    function fetchUsers() {
+      $.ajax({
+        url: '/api/users',
+        method: 'GET',
+        headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function(data) {
+          $('#users-table tbody').empty();
+          data.forEach(function(user) {
+            $('#users-table tbody').append(`
+              <tr>
+                <td>${user._id}</td>
+                <td>${user.username}</td>
+                <td>${user.password}</td>
+                <td>
+                    <button class="btn btn-sm btn-danger delete-user" data-id="${user._id}">Удалить</button>
+                </td>
+              </tr>
+            `);
+          });
+        },
+        error: function(xhr, status, error) {
+          showMessage('Ошибка поиска: ' + error, 'danger');
+        }
+      });
+    }
+
+    $('#login-form').submit(function(e) {
+    e.preventDefault();
+    var username = $('#username').val();
+    var password = $('#password').val();
+
+    $.ajax({
+        url: '/api/login',
+        method: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify({ username, password }),
+        success: function(data) {
+        localStorage.setItem('token', data.token);
+        showMessage('Залогинились', 'success');
+        fetchUsers();
+        $('#cur_token').val(data.token);
+        // Отобразить форму для изменения пароля
+        $('#autgorized').html(`
+            <h2>Здравствуйте: ${username}!</h2>
+        `);
+        },
+        error: function(xhr, status, error) {
+        showMessage('Ошибка входа: ' + error, 'danger');
+        }
+    });
+    });
+
+
+    $('#password-form').submit(function(e) {
+        e.preventDefault();
+        var newPassword = $('#new_password').val();
+        var token = localStorage.getItem('token');
+
+        $.ajax({
+        url: '/api/users/' + token,
+        contentType: 'application/json',
+        method: 'POST',
+        data: JSON.stringify({
+            token: token,
+            password: newPassword
+        }),
+        success: function(user) {
+            showMessage('Пароль успешно изменен', 'success');
+        },
+        error: function(xhr, status, error) {
+            showMessage('Ошибка изменения пароля: ' + error, 'danger');
+        }
+        });
+});
+
+    $('#token-form').submit(function(e) {
+            e.preventDefault();
+
+            $.ajax({
+            url: '/api/users/token/' + this.elements["cur_token"].value,
+            contentType: 'application/json',
+            method: 'GET',
+            
+            success: function(data) {
+                localStorage.setItem('token', data.token);
+                $('#cur_token').val(data.token);
+                showMessage('Токен успешно обновлен', 'success');
+                },
+                error: function(xhr, status, error) {
+                showMessage('Ошибка обновления токена: ' + error, 'danger');
+                }
+            });
+    });
+
+
+
+    // Добавление пользователя
+    function CreateUser(userName, userPassword, age, education) {
+         $.ajax({
+            url: "api/users",
+            contentType: "application/json",
+            method: "POST",
+            data: JSON.stringify({
+                name: userName,
+                password: userPassword,
+                age: age,
+                education, education
+            }),
+            success: function (user) {
+        reset();
+        $("table tbody").append(row(user));
+            }
+        })
+    }
+
+    // отправка формы
+    $("#userForm").submit(function (e) {
+        e.preventDefault();
+        var name = this.elements["name"].value;
+        var password = this.elements["password"].value;
+        var age = this.elements["age"].value;
+        var education = this.elements["education"].value;
+        CreateUser(name, password, age, education);
+    });
+
+
+    function showMessage(message, type) {
+      $('#message-container').html(`
+        <div class="alert alert-${type} alert-dismissible fade show" role="alert">
+          ${message}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      `);
+    }
+
+    $('body').on('click', '.delete-user', function() {
+        var userId = $(this).data('id');
+        DeleteUser(userId);
+    });
+
+    // Удаление пользователя
+    function DeleteUser(userId) {
+        $.ajax({
+            url: "api/users/" + userId,
+            contentType: "application/json",
+            method: "DELETE",
+            success: function (user) {
+            console.log(user);
+            var row = $("#users-table tbody tr").filter(function() {
+                return $(this).find("td:first").text() === user._id;
+            });
+            row.remove();
+            fetchUsers();
+            },
+            error: function(xhr, status, error) {
+            showMessage('Ошибка удаления: ' + error, 'danger');
+            }
+        });
+    }
+
+    $("#info-form").submit(function (e) {
+    e.preventDefault(); // Предотвращаем отправку формы
+    var name = $("#info_name").val(); // Получаем значение из поля info_name
+    
+    $.ajax({
+        url: "api/users/" + name,
+        contentType: "application/json",
+        method: "GET",
+        success: function (user) {
+        // Обновите поля возраста, должности и токена
+        $("#info_age").val(user.age);
+        $("#info_education").val(user.education);
+        $("#token").val(localStorage.getItem('token'));
+        },
+        error: function(xhr, status, error) {
+        showMessage('Ошибка получения: ' + error, 'danger');
+        }
+    });
+    })
+
+    fetchUsers();
+  </script>
+</body>
+</html>

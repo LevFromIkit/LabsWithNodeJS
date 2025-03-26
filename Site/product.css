@@ -1,0 +1,151 @@
+#date_pic,
+#progress,
+#tabs,
+#accordion,
+#slides {
+	margin: 20px;
+}
+
+button {
+	border-radius: 20px;
+	background: rgb(141, 247, 19);
+	font-size: 20px;
+	color: rgb(245, 20, 39);
+	margin: 0 auto;
+  	display: block;
+}
+
+button:hover {
+	scale: 1.2;
+	transition: 1s;
+}
+
+#progressbar {
+	background: rgb(247, 19, 19);
+}
+
+.image {
+	width: 300px;
+	height: auto;
+	transition: all ease 1s;
+	transition-property: all;
+}
+
+.image:hover {
+	width: 400px;
+	height: auto;
+	transition: 1s;
+}
+
+.accord{
+	margin: 25px;
+}
+
+.accordion {
+	list-style-type: none;
+	border-top: 1px solid #ddd;
+	border-left: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+	margin: 0 auto;
+	padding-left: 0;
+	width: 400px;
+}
+
+.accordion-header {
+	background-color: white;
+	border-bottom: 1px solid #ddd;
+	cursor: pointer;
+	min-height: 3rem;
+	line-height: 3rem;
+	padding: 0 1rem;
+}
+
+.accordion-header:after {
+	content: '\02795';
+	font-size: 0.6rem;
+	color: #777;
+	float: right;
+}
+
+.accordion-header.active:after {
+	content: '\02796';
+}
+
+.accordion-body {
+	display: none;
+	padding: 1rem;
+	border-bottom: 1px solid #777;
+	background-color: #777;
+	color: #aaa;
+}
+
+.ui-effects-transfer {
+    border: 5px solid wheat;
+}
+
+
+#tabs img {
+	width: 400px;
+	height: 300px;
+}
+
+
+#slider {
+	align-content: center;
+    width: 960px;
+}
+
+.container_copy {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+  
+.photo {
+	max-width: 200px;
+	margin: 10px;
+	cursor: pointer;
+}
+  
+#image-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.8);
+	display: none;
+	justify-content: center;
+	align-items: center;
+	z-index: 999;
+  }
+  
+  #full-image {
+	max-width: 90%;
+	max-height: 90%;
+  }
+  
+  .close-button {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	font-size: 30px;
+	color: white;
+	cursor: pointer;
+  }
+
+  .controls {
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
+  }
+  
+  .controls button {
+	margin: 0 10px;
+	padding: 10px 20px;
+	background-color: #fff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+  }
+  
